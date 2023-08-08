@@ -5,8 +5,21 @@
 using namespace std;
 
 bool comp(pair<pair<int,int>,int> p1, pair<pair<int,int>,int> p2){
-    if(p1.second <= p2.second) return true;
-    else return false;
+    if(p1.second < p2.second){
+        return true;
+    }
+    else if(p1.second > p2.second){
+        return false;
+    } 
+    else if(p1.first.first < p2.first.first){
+        return true;
+    }
+    else if(p1.first.first > p2.first.first){
+        return false;
+    } 
+    else {
+        return false;
+    }
 }
 
 void krushkal(){
