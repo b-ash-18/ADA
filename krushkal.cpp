@@ -25,16 +25,10 @@ void krushkal(){
     for(int i = 0; i < v; i++){
         graph[i] = new int[v];
     }
-
-    cout << "Enter the graph as adjacency matrix :" << endl;
-    cout << "  ";
-    for(int i= 0 ; i<v-1; i++){
-        cout << (char)(65 + i) << "  ";
-    }
-    cout << endl;
-    for(int i = 1; i < v; i++){
-        cout << (char)(65 + i) << " ";
-        for(int j = 0; j < i; j++){
+    
+    for(int i=0; i < v-1; i++){
+        for(int j = i+1; j<v; j++){
+            cout << "Enter the weight between " << (char)(i+65) <<" and " << (char)(65+j) <<": ";
             cin >> graph[i][j];
             if(graph [i][j] != 0){
                 arr.push_back({{i,j},graph[i][j]});
