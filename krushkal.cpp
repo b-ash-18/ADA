@@ -4,23 +4,16 @@
 #include<algorithm>
 using namespace std;
 
-bool comp(pair<pair<int,int>,int> p1, pair<pair<int,int>,int> p2){
-    if(p1.second < p2.second){
-        return true;
+bool comp(pair<pair<int, int>, int> p1, pair<pair<int, int>, int> p2) {
+    if (p1.second < p2.second) return true;
+    if (p1.second > p2.second) return false;
+    // If weights are equal, compare the vertex indices
+    if (p1.first.first != p2.first.first) {
+        return p1.first.first < p2.first.first;
     }
-    else if(p1.second > p2.second){
-        return false;
-    } 
-    else if(p1.first.first < p2.first.first){
-        return true;
-    }
-    else if(p1.first.first > p2.first.first){
-        return false;
-    } 
-    else {
-        return false;
-    }
+    return p1.first.second < p2.first.second;
 }
+
 
 void krushkal(){
     int v;
